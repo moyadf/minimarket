@@ -7,7 +7,7 @@ import { CartService } from '../services/cart.service';
   <div class="card-header">
     Please choose a product on of the left
 
-    <section style="display:flex;">
+    <section class="button-cart-container">
       <div class="ui vertical animated button" tabindex="0">
         <div class="hidden content">{{cart.cartItemsList.length}}</div>
         <div class="visible content">
@@ -81,9 +81,15 @@ import { CartService } from '../services/cart.service';
     font-size:1rem;
   }
 
+  .button-cart-container {
+    display: flex;
+    margin: 10px 0;
+  }
+
   .ui.labeled.input:not([class*="corner labeled"]) .label:first-child+input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    width: 50px;
   }
 
   .ui.label.less {
@@ -115,7 +121,7 @@ export class AddToCartDir{
   }
 
   emptyCart(){
-    let cartStatus = confirm("Are you shure");
+    let cartStatus = confirm("Are you sure");
     if(cartStatus){
       this.cart.emptyCart();
       document.location.href = '/products';
